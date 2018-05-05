@@ -14,6 +14,13 @@ var myApp = angular
         .state('detail',{
         url:'/detail',
         templateUrl: 'app/templates/detail.html',
-         controller:'detailCtrl'
+         controller:'detailCtrl',
+        resolve : {
+            "check": function($state , $rootScope){
+                if(!$rootScope.loggedIn){
+                    $state.go('home');
+                }
+            }
+        }
     });
 });

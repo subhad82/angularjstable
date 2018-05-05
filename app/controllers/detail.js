@@ -4,20 +4,24 @@ myApp.controller('detailCtrl',['$scope','$http',function($scope,$http){
     
 
     
-    
+     $scope.IsVisible = false;
+            $scope.ShowHide = function () {
+                //If DIV is visible it will be hidden and vice versa.
+                $scope.IsVisible = $scope.IsVisible ? false : true;
+            }
 
 
      $scope.people = [
-    {name:'Jon', join: "9/10/17", title: 'Developer'},
-    {name:'Mike', join: "9/10/17", title: 'Manager'},{name:'Jon', join: "9/10/17", title: 'Developer'},
-    {name:'Mike', join: "9/10/17", title: 'Manager'},
-    {name:'Allen', join: "9/10/17", title: 'CEO'}
+    {name:'Jon', join: "5/8/18 12:00 AM", title: 'Developer'},
+    {name:'Mike', join: "5/8/18 12:00 AM", title: 'Manager'},{name:'Jon', join: "5/8/18 12:00 AM", title: 'Developer'},
+    {name:'Mike', join: "5/8/18 12:00 AM", title: 'Manager'},
+    {name:'Allen', join: "5/8/18 12:00 AM", title: 'CEO'}
     ];
     
   $scope.addPerson = function(){
     var person = {
         name: $scope.name,
-        age: $scope.join,
+        join: $scope.join,
         title: $scope.title,
     };
     

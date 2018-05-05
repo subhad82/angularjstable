@@ -2,7 +2,7 @@
 <div ng-controller="detailCtrl">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Admin Section</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,41 +10,38 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Members <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Products</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">kih</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Reporting</a>
+      </li><li class="nav-item">
+        <a class="nav-link" href="#">Users</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+    
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <ul class="form-inline my-2 my-lg-0 navbar-nav ">
+        
+        <li class="nav-item">
+        <a class="nav-link" href="#">admin user</a>
+        </li>
+             <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+        </li>
+    </ul>
   </div>
 </nav>
 
+<button type="button"  ng-click="ShowHide()" />Add person</button>
 
-
-  <fieldset>
+  <fieldset ng-show = "IsVisible">
       <legend>Create Person</legend>
     <input type="text" ng-model="name" placeholder="Name" ><br />
-    <input type="number" ng-model="join" placeholder="join" ><br />
+    <input type="date" ng-model="join" placeholder="join" ><br />
     <input type="text" ng-model="title" placeholder="Title" ><br />
-    <button type="button" ng-click="addPerson()">Add Person</button>
+    <button type="button" ng-click="addPerson()">Add Up</button>
     </fieldset>
     
     <table border="1" cellpadding="10">
@@ -70,7 +67,7 @@
             {{ person.name }}
           </td>
           <td>
-            {{ person.join }}
+            {{ person.join | date : "M/d/yy h:mm a" }}
           </td>
           <td>
             {{ person.title }}
@@ -100,7 +97,8 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-lg-6">Name :-<input ng-model="selectedItem.name"> </div>
-            <div class="col-lg-6"> :-<input ng-model="selectedItem.name"> </div>
+            <div class="col-lg-6"> Result
+<input type="date" ng-model="selectedItem.join" /> </div>
             
           
           </div>
