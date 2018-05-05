@@ -21,15 +21,14 @@ myApp.controller('HomeCtrl',['$scope','$state','$rootScope',function($scope , $s
          
          if ($scope.username == 'admin'  && $scope.password == 'admin'){
               $rootScope.loggedIn = true;
-              
+             
              $state.go('detail');
          } else {
              alert('Hint:- username: admin ; Password :admin');
          }
      }
     
-    
-//      myApp.factory('LoginService', function() {
+  //      myApp.factory('LoginService', function() {
 //    var admin = 'admin';
 //    var pass = 'pass';
 //    var isAuthenticated = false;

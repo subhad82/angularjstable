@@ -1,4 +1,4 @@
-myApp.controller('detailCtrl',['$scope','$http',function($scope,$http){
+myApp.controller('detailCtrl',['$scope','$state','$location',function($scope,$state,$location){
    
    console.log('yes india');
     
@@ -6,7 +6,7 @@ myApp.controller('detailCtrl',['$scope','$http',function($scope,$http){
     
      $scope.IsVisible = false;
             $scope.ShowHide = function () {
-                //If DIV is visible it will be hidden and vice versa.
+                
                 $scope.IsVisible = $scope.IsVisible ? false : true;
             }
 
@@ -43,4 +43,10 @@ myApp.controller('detailCtrl',['$scope','$http',function($scope,$http){
       close();
   };
     
+    
+  
+  
+    
 }]);
+
+
