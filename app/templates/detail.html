@@ -11,7 +11,7 @@
     <div class="col-md-6 m-t-2">
        
         <div ><span><input class="filter_input" ng-model="search" placeholder="Filter by name or id"></span><span><button class="filter">filter</button></span></div></div>    
-    <div class="col-md-6 m-t-2 text-right"><button type="button" class="add_member" ng-click="ShowHide()" />Add Member</button></div>    
+    <div class="col-md-6 m-t-2 text-right"><button type="button" class="add_member" ng-click="ShowHide()" />Create a new Member</button></div>    
         
         </div>
     
@@ -50,21 +50,21 @@
            
         </tr>
         <tr>
-          <th>
+          <th class="sky">
             ID
           </th>
-          <th>
+          <th class="sky">
             Name
           </th>
             <th>1st</th>
             <th>2nd</th>
             <th>3rd</th>
             <th>4th</th>
-          <th>
+          <th class="sky">
             Join Date
           </th>
         
-          <th>
+          <th class="sky">
            Status
           </th>
             <th></th>
@@ -72,7 +72,7 @@
       </thead>
       <body>
         <tr ng-repeat="person in people | filter : search">
-            <td>
+            <td class="sky">
             {{ person.id }}
           </td>
           <td>
