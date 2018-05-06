@@ -6,3 +6,57 @@
 .form { padding: 10px; background: rebeccapurple;margin-top: 10px;}
 
 .m-t-2{ margin-top: 2em;}
+.bg{ background-color: black;}
+.navbar-light .navbar-nav .nav-link{ color:white !important;}
+.navbar-brand { color: white !important;}
+.active { background-color: red !important;}
+.navbar-toggler{ background-color: white;}
+.width-100{ width: 100%;}
+table { text-align: center;}
+.add_member{ background-color: green;color: white;padding: 7px;}
+.filter_input {
+    width: 61%;
+    margin-right: 8px;
+    height: 41px;
+}
+.filter{ 
+background-color: black;color: white;padding: 7px;width:102px;
+}
+.status {
+    background: green;
+    padding: 3px;
+    color: white;
+}
+/*
+
+extras*/
+
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px)
+{
+    
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+}

@@ -3,46 +3,91 @@
 
    <div ng-include="'app/templates/header.html'"></div>
 
-<button type="button"  ng-click="ShowHide()" />Add person</button>
-<input ng-model="search">
-  <fieldset ng-show = "IsVisible">
-      <legend>Create Person</legend>
-    <input type="text" ng-model="name" placeholder="Name" ><br />
-    <input type="date" ng-model="join" placeholder="join" ><br />
-    <input type="text" ng-model="title" placeholder="Title" ><br />
-    <button type="button" ng-click="addPerson()">Add Up</button>
-    </fieldset>
+    <div class="container">
     
-    <table border="1" cellpadding="10">
+    <div class="row">
+        <div class="col-md-12">
+         <div class="m-t-2"><b><h2>Members List</h2></b></div></div>
+    <div class="col-md-6 m-t-2">
+       
+        <div ><span><input class="filter_input" ng-model="search" placeholder="Filter by name or id"></span><span><button class="filter">filter</button></span></div></div>    
+    <div class="col-md-6 m-t-2 text-right"><button type="button" class="add_member" ng-click="ShowHide()" />Add Member</button></div>    
+        
+        </div>
+    
+    
+    <div class="m-t-2"> 
+        <fieldset ng-show = "IsVisible">
+      <legend>Create Member</legend>
+    <div class="row">
+            <div class="col-md-3"> <input class="width-100" type="text" ng-model="name" placeholder="Name" ></div>
+            <div class="col-md-3"><input type="date" class="width-100" ng-model="join" placeholder="join" ></div>
+            <div class="col-md-3"> <input type="text" class="width-100" ng-model="id" placeholder="id" ></div>
+            <div class="col-md-3"><input type="text" class="width-100" ng-model="status" placeholder="status " ></div>
+           </div>    
+ <div class="row m-t-2">
+                <div class="col-md-3"><input type="text" class="width-100" ng-model="section1" placeholder="section 1st" ></div>
+        <div class="col-md-3"><input type="text" class="width-100" ng-model="section2" placeholder="section 2nd" ></div>
+        <div class="col-md-3"><input type="text" class="width-100" ng-model="section3" placeholder="section 3rd" ></div><div class="col-md-3"><input type="text" class="width-100" ng-model="section4" placeholder="section 4th" ></div>
+            </div>
+  
+        
+        <br />
+    <button type="button" ng-click="addPerson()">Add Up</button>
+    </fieldset></div>
+    
+
+    <div>
+    
+     
+    <table border="1" cellpadding="10" class="width-100 m-t-2">
       <thead>
+              <tr>
+            <th colspan="1"></th>
+            <th colspan="1"></th>
+            <th colspan="4">Sections</th>
+            <th colspan="2"></th><th colspan="2"></th>
+           
+        </tr>
         <tr>
+          <th>
+            ID
+          </th>
           <th>
             Name
           </th>
+            <th>1st</th>
+            <th>2nd</th>
+            <th>3rd</th>
+            <th>4th</th>
           <th>
-            join
+            Join Date
           </th>
+        
           <th>
-            Title
+           Status
           </th>
-          <th>
-           
-          </th>
+            <th></th>
         </tr>
       </thead>
       <body>
         <tr ng-repeat="person in people | filter : search">
+            <td>
+            {{ person.id }}
+          </td>
           <td>
             {{ person.name }}
           </td>
+            <td>{{person.section1}}</td>
+            <td>{{person.section2}}</td>
+            <td>{{person.section3}}</td>
+            <td>{{person.section4}}</td>
           <td>
             {{ person.join | date : "M/d/yy h:mm a" }}
           </td>
+          <td><span class="status">{{person.status}}</span></td>
           <td>
-            {{ person.title }}
-          </td>
-          <td>
-             <button type="button" ng-click="removePerson($index)">Remove Person</button> <button type="button" ng-click="openEdit($index)" data-toggle="modal" data-target="#exampleModal">edit Person</button>
+             <button type="button" ng-click="removePerson($index)">Remove Member</button> <button type="button" ng-click="openEdit($index)" data-toggle="modal" data-target="#exampleModal">Edit Member</button>
           </td>
          
         </tr>
@@ -50,6 +95,28 @@
     </table>
     
     
+    <nav aria-label="Page navigation example" class="m-t-2">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+    </div>
+ 
+    
+
+
+
+
+   
     <!-- Button trigger modal -->
 
 
@@ -65,10 +132,22 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-lg-6">Name :-<input ng-model="selectedItem.name"> </div>
-            <div class="col-lg-6"> Result
+          <div class="col-lg-6"><label>Name :</label><input ng-model="selectedItem.name"> </div>
+            <div class="col-lg-6"> <label>Join date:</label>
 <input type="date" ng-model="selectedItem.join" /> </div>
-            
+        
+          </div>
+          <div class="row m-t-2">
+              <div class="col-md-6"><label>Id :</label><br><input type="text" ng-model="selectedItem.id" /></div>
+              <div class="col-md-6"><label>status</label><br><input type="text" ng-model="selectedItem.status"></div>
+          
+          </div>
+          <div class="row m-t-2">
+              
+              <div class="col-md-6"><label>section1</label><input ng-model="selectedItem.section1" placeholder="section 1st"></div>
+              <div class="col-md-6"> <label>section2</label><input ng-model="selectedItem.section2" placeholder="section 2nd"></div>
+              <div class="col-md-6"><label>section3</label><input ng-model="selectedItem.section3" placeholder="section 3rd"></div>
+              <div class="col-md-6"><label>section4</label><input ng-model="selectedItem.section4" placeholder="section 4th"></div>
           
           </div>
       </div>
